@@ -16,13 +16,13 @@ tools:context="com.example.goodnews.ui.ProfileFragment">
 
 
     <TextView
-        android:id="@+id/username"
+        android:id="@+id/name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="15sp"
         android:fontFamily="sans-serif-light"
-        android:text="FIRST_NAME LAST_NAME"
+        android:text="name"
         android:textColor="@color/black"
         android:textSize="32sp" />
 
@@ -60,7 +60,7 @@ tools:context="com.example.goodnews.ui.ProfileFragment">
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Email"
+                    android:text="Email Address"
                     android:textColor="@color/black"
                     android:textSize="13sp" />
 
@@ -80,63 +80,13 @@ tools:context="com.example.goodnews.ui.ProfileFragment">
 
             </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
-                android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Country"
-                    android:textColor="@color/black"
-                    android:textSize="13sp" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="sans-serif-light"
-                    android:text="England"
-                    android:textColor="#000000"
-                    android:textSize="18sp" />
-
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:layout_marginTop="15dp"
-                    android:background="#62b8af" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
-                android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="News Topics"
-                    android:textColor="@color/black"
-                    android:textSize="13sp" />
-
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:layout_marginTop="15dp"
-                    android:background="#62b8af" />
-
-            </LinearLayout>
-
             <Button
-                android:id="@+id/button"
+                android:id="@+id/logout"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
                 android:background="#62b8af"
-                android:text="Edit Profile"
+                android:text="Logout"
                 android:textColor="@color/white"
                 android:textColorHighlight="#62b8af"
                 android:textColorHint="#62b8af"
