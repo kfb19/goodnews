@@ -9,9 +9,9 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
 import com.example.goodnews.R;
-import com.example.goodnews.ui.HomeFragment;
+import com.example.goodnews.ui.HeadlineFragment;
 import com.example.goodnews.ui.ProfileFragment;
-import com.example.goodnews.ui.WellbeingFragment;
+import com.example.goodnews.ui.MyNewsFragment;
 
 /**
  * A [FragmentPagerAdapter] that returns a fragment corresponding to
@@ -33,9 +33,9 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
         Fragment fragment = null;
         switch (position){
             case 0:
-                return new HomeFragment();
+                return new HeadlineFragment();
             case 1:
-                return new WellbeingFragment();
+                return new MyNewsFragment();
             case 2:
                 return new ProfileFragment();
         }

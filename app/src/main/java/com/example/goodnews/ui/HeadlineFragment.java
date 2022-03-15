@@ -14,10 +14,10 @@ import com.example.goodnews.R;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link HomeFragment#newInstance} factory method to
+ * Use the {@link HeadlineFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class HomeFragment extends Fragment {
+public class HeadlineFragment extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -28,7 +28,7 @@ public class HomeFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public HomeFragment() {
+    public HeadlineFragment() {
         // Required empty public constructor
     }
 
@@ -41,8 +41,8 @@ public class HomeFragment extends Fragment {
      * @return A new instance of fragment HomeFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static HomeFragment newInstance(String param1, String param2) {
-        HomeFragment fragment = new HomeFragment();
+    public static HeadlineFragment newInstance(String param1, String param2) {
+        HeadlineFragment fragment = new HeadlineFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -64,7 +64,7 @@ public class HomeFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         super.onCreate(savedInstanceState);
-        View view = inflater.inflate(R.layout.fragment_home, container, false);
+        View view = inflater.inflate(R.layout.fragment_headline, container, false);
         NewsData[] NewsData = new NewsData[] {
                 new NewsData("Email", android.R.drawable.ic_dialog_email),
                 new NewsData("Info", android.R.drawable.ic_dialog_info),
@@ -88,7 +88,7 @@ public class HomeFragment extends Fragment {
         recyclerView.setAdapter(adapter);
 
 
-        return inflater.inflate(R.layout.fragment_home, container, false);
+        return inflater.inflate(R.layout.fragment_headline, container, false);
     }
 
 }
