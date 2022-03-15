@@ -13,6 +13,8 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.example.goodnews.R;
+import com.example.goodnews.User;
+import com.example.goodnews.UserLocal;
 import com.example.goodnews.ui.login.LoginActivity;
 
 /**
@@ -24,6 +26,7 @@ public class ProfileFragment extends Fragment implements View.OnClickListener{
 
     Button bLogout;
     EditText etName, etEmailAddress;
+    UserLocal localStore;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -63,23 +66,45 @@ public class ProfileFragment extends Fragment implements View.OnClickListener{
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        etName = (EditText) getView().findViewById(R.id.name);
-        etEmailAddress = (EditText) getView().findViewById(R.id.email_address);
+        etName = (EditText) getView().findViewById(R.id.person_name);
+        etEmailAddress = (EditText) getView().findViewById(R.id.email);
         bLogout = (Button) getView().findViewById(R.id.logout);
         bLogout.setOnClickListener(this);
+        localStore = new UserLocal((LoginActivity) getActivity());
         return inflater.inflate(R.layout.fragment_profile, container, false);
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+
+        if (authenticate() == true){
+            displayUserDetails();;
+        }
+    }
+
+    private boolean authenticate() {
+        return localStore.getUserLoggedIn();
+    }
+
+    private void displayUserDetails() {
+        User user = localStore.getLoggedInUser();
+        etName.setText(user.name);
+        etEmailAddress.setText(user.email_address);
     }
 
     @Override
     public void onClick(View view) {
         switch(view.getId()) {
             case R.id.logout:
-
+                localStore.clearUserData();
+                localStore.setUserLoggedIn(false);
                 break;
         }
     }

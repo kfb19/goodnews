@@ -15,16 +15,7 @@ tools:context="com.example.goodnews.ui.ProfileFragment">
 
 
 
-    <TextView
-        android:id="@+id/name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="15sp"
-        android:fontFamily="sans-serif-light"
-        android:text="name"
-        android:textColor="@color/black"
-        android:textSize="32sp" />
+
 
 
     <ImageView
@@ -57,20 +48,29 @@ tools:context="com.example.goodnews.ui.ProfileFragment">
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
-                <TextView
-                    android:layout_width="wrap_content"
+                <EditText
+                    android:id="@+id/person_name"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Email Address"
-                    android:textColor="@color/black"
-                    android:textSize="13sp" />
+                    android:layout_marginTop="96dp"
+                    android:hint="Full Name"
+                    android:inputType="textPersonName"
+                    android:selectAllOnFocus="true"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-                <TextView
-                    android:layout_width="wrap_content"
+                <EditText
+                    android:id="@+id/email"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:fontFamily="sans-serif-light"
-                    android:text="joey@sharenofood.com"
-                    android:textColor="#000000"
-                    android:textSize="18sp" />
+                    android:layout_marginTop="8dp"
+                    android:hint="@string/prompt_email"
+                    android:inputType="textEmailAddress"
+                    android:selectAllOnFocus="true"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/name" />
 
                 <View
                     android:layout_width="match_parent"

@@ -2,6 +2,7 @@ package com.example.goodnews.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.goodnews.R;
+import com.example.goodnews.User;
 import com.example.goodnews.ui.login.LoginActivity;
 
 import android.content.Context;
@@ -37,6 +38,10 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
     public void onClick(View view) {
         switch(view.getId()) {
             case R.id.register:
+                String name = etName.getText().toString();
+                String email = etEmailAddress.getText().toString();
+                String password = etPassword.getText().toString();
+                User registeredData = new User(name, email, password);
                 Context context = RegisterActivity.this;
                 // Store SecondActivity.class in a Class object called destinationActivity
                 Class destinationActivity = MainActivity.class;

@@ -12,6 +12,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.example.goodnews.R;
+import com.example.goodnews.User;
+import com.example.goodnews.UserLocal;
 import com.example.goodnews.ui.MainActivity;
 import com.example.goodnews.ui.RegisterActivity;
 
@@ -20,6 +22,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     Button bLogin;
     EditText etEmailAddress, etPassword;
     TextView tvRegisterLink;
+    UserLocal localStore;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,12 +36,16 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
         bLogin.setOnClickListener(this);
         tvRegisterLink.setOnClickListener(this);
+        localStore = new UserLocal(this);
     }
 
     @Override
     public void onClick(View view) {
         switch(view.getId()) {
             case R.id.login:
+                User user = new User(null, null);
+                localStore.storeUserData(user);
+                localStore.setUserLoggedIn(true);
                 Context context = LoginActivity.this;
                 // Store SecondActivity.class in a Class object called destinationActivity
                 Class destinationActivity = MainActivity.class;
