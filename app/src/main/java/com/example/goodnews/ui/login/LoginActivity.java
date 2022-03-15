@@ -26,122 +26,50 @@ import android.widget.Toast;
 
 import com.example.goodnews.R;
 import com.example.goodnews.ui.MainActivity;
-import com.example.goodnews.ui.login.LoginViewModel;
-import com.example.goodnews.ui.login.LoginViewModelFactory;
+import com.example.goodnews.ui.Register;
 import com.example.goodnews.databinding.ActivityLoginBinding;
 
-public class LoginActivity extends AppCompatActivity {
+public class LoginActivity extends AppCompatActivity implements View.OnClickListener{
 
-    private LoginViewModel loginViewModel;
-    private ActivityLoginBinding binding;
+    Button bLogin;
+    EditText etEmailAddress, etPassword;
+    TextView tvRegisterLink;
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_login);
 
-        binding = ActivityLoginBinding.inflate(getLayoutInflater());
-        setContentView(binding.getRoot());
+        etEmailAddress = (EditText) findViewById(R.id.email_address);
+        etPassword = (EditText) findViewById(R.id.password);
+        bLogin = (Button) findViewById(R.id.login);
+        tvRegisterLink = (TextView) findViewById(R.id.register_link);
 
-        loginViewModel = new ViewModelProvider(this, new LoginViewModelFactory())
-                .get(LoginViewModel.class);
-
-        final EditText usernameEditText = binding.username;
-        final EditText passwordEditText = binding.password;
-        final Button loginButton = binding.login;
-        final TextView registerLink = binding.registerLink;
-        final ProgressBar loadingProgressBar = binding.loading;
-
-        loginViewModel.getLoginFormState().observe(this, new Observer<LoginFormState>() {
-            @Override
-            public void onChanged(@Nullable LoginFormState loginFormState) {
-                if (loginFormState == null) {
-                    return;
-                }
-                loginButton.setEnabled(loginFormState.isDataValid());
-                if (loginFormState.getUsernameError() != null) {
-                    usernameEditText.setError(getString(loginFormState.getUsernameError()));
-                }
-                if (loginFormState.getPasswordError() != null) {
-                    passwordEditText.setError(getString(loginFormState.getPasswordError()));
-                }
-            }
-        });
-
-        loginViewModel.getLoginResult().observe(this, new Observer<LoginResult>() {
-            @Override
-            public void onChanged(@Nullable LoginResult loginResult) {
-                if (loginResult == null) {
-                    return;
-                }
-                loadingProgressBar.setVisibility(View.GONE);
-                if (loginResult.getError() != null) {
-                    showLoginFailed(loginResult.getError());
-                }
-                if (loginResult.getSuccess() != null) {
-                    updateUiWithUser(loginResult.getSuccess());
-                }
-                setResult(Activity.RESULT_OK);
-
-                //Complete and destroy login activity once successful
-                finish();
-            }
-        });
-
-        TextWatcher afterTextChangedListener = new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-                // ignore
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-                // ignore
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-                loginViewModel.loginDataChanged(usernameEditText.getText().toString(),
-                        passwordEditText.getText().toString());
-            }
-        };
-        usernameEditText.addTextChangedListener(afterTextChangedListener);
-        passwordEditText.addTextChangedListener(afterTextChangedListener);
-        passwordEditText.setOnEditorActionListener(new TextView.OnEditorActionListener() {
-
-            @Override
-            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
-                if (actionId == EditorInfo.IME_ACTION_DONE) {
-                    loginViewModel.login(usernameEditText.getText().toString(),
-                            passwordEditText.getText().toString());
-                }
-                return false;
-            }
-        });
-
-        loginButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                loadingProgressBar.setVisibility(View.VISIBLE);
-                loginViewModel.login(usernameEditText.getText().toString(),
-                        passwordEditText.getText().toString());
-            }
-        });
+        bLogin.setOnClickListener(this);
+        tvRegisterLink.setOnClickListener(this);
     }
 
-    private void updateUiWithUser(LoggedInUserView model) {
-        String welcome = getString(R.string.welcome) + model.getDisplayName();
-        Context context = LoginActivity.this;
-        // Store SecondActivity.class in a Class object called destinationActivity
-        Class destinationActivity = MainActivity.class;
-        // Create an Intent to start SecondActivity
-        Intent intent = new Intent (context, destinationActivity);
-        // Start the SecondActivity
-        startActivity(intent);
-
-        Toast.makeText(getApplicationContext(), welcome, Toast.LENGTH_LONG).show();
-    }
-
-    private void showLoginFailed(@StringRes Integer errorString) {
-        Toast.makeText(getApplicationContext(), errorString, Toast.LENGTH_SHORT).show();
+    @Override
+    public void onClick(View view) {
+        switch(view.getId()) {
+            case R.id.login:
+                Context context = LoginActivity.this;
+                // Store SecondActivity.class in a Class object called destinationActivity
+                Class destinationActivity = MainActivity.class;
+                // Create an Intent to start SecondActivity
+                Intent intent = new Intent (context, destinationActivity);
+                // Start the SecondActivity
+                startActivity(intent);
+                break;
+            case R.id.register_link:
+                Context context_register = LoginActivity.this;
+                // Store SecondActivity.class in a Class object called destinationActivity
+                Class destinationRegister = Register.class;
+                // Create an Intent to start SecondActivity
+                Intent intent_register = new Intent (context_register, destinationRegister);
+                // Start the SecondActivity
+                startActivity(intent_register);
+                break;
+        }
     }
 }
