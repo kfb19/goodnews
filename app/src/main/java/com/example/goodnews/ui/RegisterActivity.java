@@ -1,45 +1,43 @@
-package com.example.goodnews.ui.login;
+package com.example.goodnews.ui;
+
+import androidx.appcompat.app.AppCompatActivity;
+import com.example.goodnews.R;
+import com.example.goodnews.ui.login.LoginActivity;
 
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import com.example.goodnews.R;
-import com.example.goodnews.ui.MainActivity;
-import com.example.goodnews.ui.RegisterActivity;
+public class RegisterActivity extends AppCompatActivity implements View.OnClickListener {
 
-public class LoginActivity extends AppCompatActivity implements View.OnClickListener{
-
-    Button bLogin;
-    EditText etEmailAddress, etPassword;
-    TextView tvRegisterLink;
+    Button bRegister;
+    EditText etName, etEmailAddress, etPassword;
+    TextView tvLoginLink;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
+        setContentView(R.layout.activity_register);
 
+        etName = (EditText) findViewById(R.id.name);
         etEmailAddress = (EditText) findViewById(R.id.email_address);
         etPassword = (EditText) findViewById(R.id.password);
-        bLogin = (Button) findViewById(R.id.login);
-        tvRegisterLink = (TextView) findViewById(R.id.register_link);
+        bRegister = (Button) findViewById(R.id.register);
+        tvLoginLink = (TextView) findViewById(R.id.login_link);
 
-        bLogin.setOnClickListener(this);
-        tvRegisterLink.setOnClickListener(this);
+        bRegister.setOnClickListener(this);
+        tvLoginLink.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View view) {
         switch(view.getId()) {
-            case R.id.login:
-                Context context = LoginActivity.this;
+            case R.id.register:
+                Context context = RegisterActivity.this;
                 // Store SecondActivity.class in a Class object called destinationActivity
                 Class destinationActivity = MainActivity.class;
                 // Create an Intent to start SecondActivity
@@ -47,14 +45,14 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 // Start the SecondActivity
                 startActivity(intent);
                 break;
-            case R.id.register_link:
-                Context context_register = LoginActivity.this;
+            case R.id.login_link:
+                Context context_login = RegisterActivity.this;
                 // Store SecondActivity.class in a Class object called destinationActivity
-                Class destinationRegister = RegisterActivity.class;
+                Class destinationLogin = LoginActivity.class;
                 // Create an Intent to start SecondActivity
-                Intent intent_register = new Intent (context_register, destinationRegister);
+                Intent intent_login = new Intent(context_login, destinationLogin);
                 // Start the SecondActivity
-                startActivity(intent_register);
+                startActivity(intent_login);
                 break;
         }
     }

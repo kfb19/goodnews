@@ -1,5 +1,7 @@
 package com.example.goodnews.ui;
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -11,6 +13,7 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.example.goodnews.R;
+import com.example.goodnews.ui.login.LoginActivity;
 
 /**
  * A simple {@link Fragment} subclass.
