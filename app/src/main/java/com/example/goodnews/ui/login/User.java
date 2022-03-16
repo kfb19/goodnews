@@ -1,4 +1,4 @@
-package com.example.goodnews;
+package com.example.goodnews.ui.login;
 
 public class User {
 

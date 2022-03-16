@@ -2,7 +2,7 @@ package com.example.goodnews.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.goodnews.R;
-import com.example.goodnews.User;
+import com.example.goodnews.ui.login.User;
 import com.example.goodnews.ui.login.LoginActivity;
 
 import android.content.Context;

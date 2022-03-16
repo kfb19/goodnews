@@ -1,8 +1,6 @@
-package com.example.goodnews;
+package com.example.goodnews.ui.login;
 
 import android.content.SharedPreferences;
-
-import com.example.goodnews.ui.login.LoginActivity;
 
 public class UserLocal {
     public static final String SP_NAME = "userDetails";

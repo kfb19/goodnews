@@ -11,10 +11,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.example.goodnews.activity.NewsFeed;
 import com.example.goodnews.R;
-import com.example.goodnews.User;
-import com.example.goodnews.UserLocal;
-import com.example.goodnews.ui.MainActivity;
 import com.example.goodnews.ui.RegisterActivity;
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener{
@@ -48,7 +46,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 localStore.setUserLoggedIn(true);
                 Context context = LoginActivity.this;
                 // Store SecondActivity.class in a Class object called destinationActivity
-                Class destinationActivity = MainActivity.class;
+                Class destinationActivity = NewsFeed.class;
                 // Create an Intent to start SecondActivity
                 Intent intent = new Intent (context, destinationActivity);
                 // Start the SecondActivity
