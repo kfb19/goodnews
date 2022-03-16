@@ -1,8 +1,10 @@
 package com.example.goodnews.model;
 
+import android.net.Uri;
+
 import com.google.gson.annotations.SerializedName;
 
-public class ArticleModel { //made not public
+public class ArticleModel {
     @SerializedName("source")
     private SourceModel source;
     @SerializedName("author")
@@ -47,7 +49,7 @@ public class ArticleModel { //made not public
     public void setUrl(String url) {
         this.url = url;
     }
-    public String getUrlToImage() {
+    public Uri getUrlToImage() {
         return urlToImage;
     }
     public void setUrlToImage(String urlToImage) {

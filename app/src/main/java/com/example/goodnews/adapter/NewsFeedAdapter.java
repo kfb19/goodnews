@@ -1,10 +1,12 @@
 package com.example.goodnews.adapter;
 
 import android.content.Context;
+import android.media.Image;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -24,7 +26,7 @@ public class NewsFeedAdapter extends RecyclerView.Adapter<NewsFeedAdapter.ViewHo
     }
     @Override
     public NewsFeedAdapter.ViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
-        View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.row_main_article_adapter, viewGroup, false);
+        View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.item, viewGroup, false);
         return new NewsFeedAdapter.ViewHolder(view);
     }
     @Override
@@ -36,6 +38,18 @@ public class NewsFeedAdapter extends RecyclerView.Adapter<NewsFeedAdapter.ViewHo
         if(!TextUtils.isEmpty(articleModel.getDescription())) {
             viewHolder.descriptionText.setText(articleModel.getDescription());
         }
+        if(!TextUtils.isEmpty(articleModel.getAuthor())) {
+            viewHolder.author.setText(articleModel.getAuthor());
+        }
+        if(!TextUtils.isEmpty(articleModel.getPublishedAt())) {
+            viewHolder.date.setText(articleModel.getPublishedAt());
+        }
+        if(!TextUtils.isEmpty((CharSequence) articleModel.getSource())) {
+            viewHolder.source.setText((CharSequence) articleModel.getSource());
+        }
+        if(!TextUtils.isEmpty((CharSequence) articleModel.getUrlToImage())) {
+            viewHolder.img.setImageURI(articleModel.getUrlToImage());
+        }
         viewHolder.articleAdapterParentLinear.setTag(articleModel);
     }
     @Override
@@ -45,11 +59,19 @@ public class NewsFeedAdapter extends RecyclerView.Adapter<NewsFeedAdapter.ViewHo
     class ViewHolder extends RecyclerView.ViewHolder{
         private TextView titleText;
         private TextView descriptionText;
+        private TextView author;
+        private TextView source;
+        private TextView date;
+        private ImageView img;
         private LinearLayout articleAdapterParentLinear;
         ViewHolder(View view) {
             super(view);
             titleText = view.findViewById(R.id.title);
             descriptionText = view.findViewById(R.id.desc);
+            author = view.findViewById(R.id.author);
+            source = view.findViewById(R.id.source);
+            date = view.findViewById(R.id.publishedAt);
+            img = view.findViewById(R.id.img);
             articleAdapterParentLinear = view.findViewById(R.id.lay);
             articleAdapterParentLinear.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -61,7 +83,7 @@ public class NewsFeedAdapter extends RecyclerView.Adapter<NewsFeedAdapter.ViewHo
             });
         }
     }
-    public static void setOnRecyclerViewItemClickListener(OnRecyclerViewItemClickListener onRecyclerViewItemClickListener) {
+    public void setOnRecyclerViewItemClickListener(OnRecyclerViewItemClickListener onRecyclerViewItemClickListener) {
         this.onRecyclerViewItemClickListener = onRecyclerViewItemClickListener;
     }
 }
