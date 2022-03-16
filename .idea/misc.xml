@@ -3,6 +3,9 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/kate/MOBILECA/goodnews/app/src/main/res/drawable-v24/bottom_shadow.xml" value="0.1" />
+        <entry key="..\:/Users/kate/MOBILECA/goodnews/app/src/main/res/drawable-v24/ic_date.xml" value="0.1" />
+        <entry key="..\:/Users/kate/MOBILECA/goodnews/app/src/main/res/drawable-v24/round_white.xml" value="0.1" />
         <entry key="..\:/Users/kate/MOBILECA/goodnews/app/src/main/res/drawable/border.xml" value="0.1" />
         <entry key="..\:/Users/kate/MOBILECA/goodnews/app/src/main/res/drawable/ic_launcher_background.xml" value="0.195" />
         <entry key="..\:/Users/kate/MOBILECA/goodnews/app/src/main/res/layout-w1240dp/activity_login.xml" value="0.23560910307898258" />
@@ -15,6 +18,7 @@
         <entry key="..\:/Users/kate/MOBILECA/goodnews/app/src/main/res/layout/fragment_profile.xml" value="0.18034447821681865" />
         <entry key="..\:/Users/kate/MOBILECA/goodnews/app/src/main/res/layout/fragment_search.xml" value="0.18034447821681865" />
         <entry key="..\:/Users/kate/MOBILECA/goodnews/app/src/main/res/layout/fragment_wellbeing.xml" value="0.1" />
+        <entry key="..\:/Users/kate/MOBILECA/goodnews/app/src/main/res/layout/item.xml" value="0.33" />
         <entry key="..\:/Users/kate/MOBILECA/goodnews/app/src/main/res/layout/news_view_item.xml" value="0.1" />
       </map>
     </option>

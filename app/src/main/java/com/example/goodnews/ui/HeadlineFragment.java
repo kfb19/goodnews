@@ -3,14 +3,26 @@ package com.example.goodnews.ui;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.telecom.Call;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
+import com.example.goodnews.Adapter;
 import com.example.goodnews.R;
+import com.example.goodnews.Utils;
+import com.example.goodnews.api.ApiClient;
+import com.example.goodnews.api.ApiInterface;
+import com.example.goodnews.models.Article;
+import com.example.goodnews.models.News;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -18,6 +30,13 @@ import com.example.goodnews.R;
  * create an instance of this fragment.
  */
 public class HeadlineFragment extends Fragment {
+
+    public static final String API_KEY = "bad365f0b7fd4702b3f46487838c9f2a";
+    private RecyclerView recyclerView;
+    private RecyclerView.LayoutManager layoutManager;
+    private List<Article> articles = new ArrayList<>();
+    private Adapter adapter;
+    private String TAG = MainActivity.class.getSimpleName();
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -57,6 +76,45 @@ public class HeadlineFragment extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+        recyclerView = getView().findViewById(R.id.recycle_news);
+        layoutManager = new LinearLayoutManager(MainActivity.this);
+        recyclerView.setLayoutManager(layoutManager);
+        recyclerView.setItemAnimator(new DefaultItemAnimator());
+        recyclerView.setNestedScrollingEnabled(false);
+
+        LoadJson();
+    }
+
+    public void LoadJson() {
+        ApiInterface apiInterface = ApiClient.getApiClient().create(ApiInterface.class);
+        String country = Utils.getCountry();
+
+        Call<News> call;
+        call = apiInterface.getNews(country, API_KEY);
+
+        call.enqueue(new Callback<News>() {
+            @Override
+            public void onResponse(Call<News> call, Response<News> response) {
+                if (response.isSuccessful() && response.body().getArticle() != null) {
+                    if (!articles.isEmpty()) {
+                        articles.clear();
+                    }
+
+                    articles.response.body().getArticle();
+                    adapter = new Adapter(articles, MainActivity.this);
+                    recyclerView.setAdapater(adapter);
+                    adapter.notifyDataSetChanged();
+
+                } else {
+                    Toast.makeText(MainActivity.this, "No Result!", Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<News> call, Throwable t) {
+
+            }
+        })
     }
 
     @Override
@@ -65,27 +123,7 @@ public class HeadlineFragment extends Fragment {
         // Inflate the layout for this fragment
         super.onCreate(savedInstanceState);
         View view = inflater.inflate(R.layout.fragment_headline, container, false);
-        NewsData[] NewsData = new NewsData[] {
-                new NewsData("Email", android.R.drawable.ic_dialog_email),
-                new NewsData("Info", android.R.drawable.ic_dialog_info),
-                new NewsData("Delete", android.R.drawable.ic_delete),
-                new NewsData("Dialer", android.R.drawable.ic_dialog_dialer),
-                new NewsData("Alert", android.R.drawable.ic_dialog_alert),
-                new NewsData("Map", android.R.drawable.ic_dialog_map),
-                new NewsData("Email", android.R.drawable.ic_dialog_email),
-                new NewsData("Info", android.R.drawable.ic_dialog_info),
-                new NewsData("Delete", android.R.drawable.ic_delete),
-                new NewsData("Dialer", android.R.drawable.ic_dialog_dialer),
-                new NewsData("Alert", android.R.drawable.ic_dialog_alert),
-                new NewsData("Map", android.R.drawable.ic_dialog_map),
-        };
 
-        RecyclerView recyclerView = view.findViewById(R.id.recycle_news);
-        recyclerView.setLayoutManager(new LinearLayoutManager(view.getContext()));
-
-        recyclerView.setHasFixedSize(true);
-        NewsDataAdapter adapter = new NewsDataAdapter(NewsData);
-        recyclerView.setAdapter(adapter);
 
 
         return inflater.inflate(R.layout.fragment_headline, container, false);
