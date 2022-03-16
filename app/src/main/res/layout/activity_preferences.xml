@@ -1,9 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/linLayout1Vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity.Preferences">
+    android:orientation="vertical"
+    android:background="#62b8af">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <TextView
+        android:id="@+id/txtCaption1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#62b8af"
+        android:fontFamily="sans-serif-light"
+        android:text=" Choose your theme!"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="15pt"
+        android:textStyle="bold" />
+
+    <LinearLayout
+        android:id="@+id/preferencesLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <Button
+            android:id="@+id/lightTheme"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Light Theme" />
+
+        <Button
+            android:id="@+id/darkTheme"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Dark Theme" />
+
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/logoPreferences"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/logo" />
+
+
+</LinearLayout>
+
