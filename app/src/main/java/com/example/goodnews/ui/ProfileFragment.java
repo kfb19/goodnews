@@ -72,9 +72,9 @@ public class ProfileFragment extends Fragment implements View.OnClickListener{
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        etName = (EditText) getView().findViewById(R.id.person_name);
-        etEmailAddress = (EditText) getView().findViewById(R.id.email);
-        bLogout = (Button) getView().findViewById(R.id.logout);
+        //etName = (EditText) getView().findViewById(R.id.person_name);
+        //etEmailAddress = (EditText) getView().findViewById(R.id.email);
+        //bLogout = (Button) getView().findViewById(R.id.logout);
         bLogout.setOnClickListener(this);
         localStore = new UserLocal((LoginActivity) getActivity());
         return inflater.inflate(R.layout.fragment_profile, container, false);
