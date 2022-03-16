@@ -12,6 +12,7 @@ import javax.net.ssl.SSLSession;
 import javax.net.ssl.SSLSocketFactory;
 import javax.net.ssl.TrustManager;
 import javax.net.ssl.X509TrustManager;
+import java.security.SecureRandom;
 
 import okhttp3.OkHttpClient;
 import retrofit2.Retrofit;
@@ -57,7 +58,7 @@ public class ApiClient {
 
             //Install the all-trusting trust manager
             final SSLContext sslContext = SSLContext.getInstance("SSL");
-            sslContext.init(null, trustAllCerts, new java.security.secureRandom());
+            sslContext.init(null, trustAllCerts, new java.security.SecureRandom());
 
             //Create an ssl socket factory with our all-trusting manager
             final SSLSocketFactory sslSocketFactory = sslContext.getSocketFactory();
@@ -74,12 +75,6 @@ public class ApiClient {
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
-
-
-
-
-
-        return null;
     }
 
 }

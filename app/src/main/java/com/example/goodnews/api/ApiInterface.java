@@ -12,6 +12,6 @@ public interface ApiInterface {
     Call<News> getNews(
             @Query("country") String country ,
             @Query("apiKey") String apiKey
-    )
+    );
 
 }

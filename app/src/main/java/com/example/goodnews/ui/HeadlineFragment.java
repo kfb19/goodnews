@@ -77,7 +77,7 @@ public class HeadlineFragment extends Fragment {
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
         recyclerView = getView().findViewById(R.id.recycle_news);
-        layoutManager = new LinearLayoutManager(MainActivity.this);
+        layoutManager = new LinearLayoutManager(getActivity().this);
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setNestedScrollingEnabled(false);
