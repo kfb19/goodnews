@@ -14,4 +14,5 @@
     <string name="invalid_username">Not a valid username</string>
     <string name="invalid_password">Password must be >5 characters</string>
     <string name="login_failed">"Login failed"</string>
+    <string name="help_text">Scroll through the news feed to view the headline news articles. If a headline interests you, please click on it to read the whole article! Press the back arrow on your device to return to the list of articles. If you want to view the homepage, click the three dots to the top left of the screen and click on \'Home\'. If you want to view the preferences page, to change the colours of the app/fonts, click the three dots to the top left of the screen and click on \'Preferences\'. If you want to view this help page, click the three dots to the top left of the screen and click on \'Help\'.</string>
 </resources>

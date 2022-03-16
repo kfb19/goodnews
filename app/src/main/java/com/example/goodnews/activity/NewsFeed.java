@@ -1,9 +1,13 @@
 package com.example.goodnews.activity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 
 import com.example.goodnews.R;
@@ -54,6 +58,47 @@ public class NewsFeed extends AppCompatActivity implements OnRecyclerViewItemCli
                 Log.e("out", t.toString());
             }
         });
+    }
+
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu, menu);
+        return true;
+    }
+
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.home:
+                Context context = NewsFeed.this;
+                // Store SecondActivity.class in a Class object called destinationActivity
+                Class destinationActivity = NewsFeed.class;
+                // Create an Intent to start SecondActivity
+                Intent intent = new Intent(context, destinationActivity);
+                // Start the SecondActivity
+                startActivity(intent);
+                break;
+            case R.id.preferences:
+                Context contextPreferences = NewsFeed.this;
+                // Store SecondActivity.class in a Class object called destinationActivity
+                Class destinationActivityPreferences = Preferences.class;
+                // Create an Intent to start SecondActivity
+                Intent intentPreferences = new Intent(contextPreferences, destinationActivityPreferences);
+                // Start the SecondActivity
+                startActivity(intentPreferences);
+                break;
+            case R.id.help:
+                Context contextHelp = NewsFeed.this;
+                // Store SecondActivity.class in a Class object called destinationActivity
+                Class destinationActivityHelp = Help.class;
+                // Create an Intent to start SecondActivity
+                Intent intentHelp = new Intent(contextHelp, destinationActivityHelp);
+                // Start the SecondActivity
+                startActivity(intentHelp);
+                break;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+        return false;
     }
 
     @Override
