@@ -1,10 +1,6 @@
 package com.example.goodnews.api;
 
 import java.security.cert.CertificateException;
-import java.security.cert.X509Certificate;
-import java.lang.Object;
-import java.util.Random;
-import java.security.*;
 
 import javax.net.ssl.HostnameVerifier;
 import javax.net.ssl.SSLContext;
@@ -12,7 +8,6 @@ import javax.net.ssl.SSLSession;
 import javax.net.ssl.SSLSocketFactory;
 import javax.net.ssl.TrustManager;
 import javax.net.ssl.X509TrustManager;
-import java.security.SecureRandom;
 
 import okhttp3.OkHttpClient;
 import retrofit2.Retrofit;

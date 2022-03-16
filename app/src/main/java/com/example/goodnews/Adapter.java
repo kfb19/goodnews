@@ -5,7 +5,6 @@ import android.graphics.drawable.Drawable;
 import android.support.annotation.NonNull;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.AdapterView.*;
 
 import androidx.recyclerview.widget.RecyclerView;
 
