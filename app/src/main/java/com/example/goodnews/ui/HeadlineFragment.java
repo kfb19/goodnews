@@ -4,11 +4,10 @@ import android.os.Bundle;
 
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,11 +15,7 @@ import android.view.ViewGroup;
 
 import com.example.goodnews.Adapter;
 import com.example.goodnews.R;
-import com.example.goodnews.Utils;
-import com.example.goodnews.api.ApiClient;
-import com.example.goodnews.api.ApiInterface;
 import com.example.goodnews.models.Article;
-import com.example.goodnews.models.News;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.koushikdutta.async.future.FutureCallback;
