@@ -25,13 +25,13 @@
         android:layout_height="wrap_content" >
 
         <Button
-            android:id="@+id/lightTheme"
+            android:id="@+id/bLightTheme"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Light Theme" />
 
         <Button
-            android:id="@+id/darkTheme"
+            android:id="@+id/bDarkTheme"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Dark Theme" />
