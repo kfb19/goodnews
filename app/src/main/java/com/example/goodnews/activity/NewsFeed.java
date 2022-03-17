@@ -18,7 +18,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.goodnews.adapter.NewsFeedAdapter;
 import com.example.goodnews.model.ArticleModel;
 import com.example.goodnews.model.ResponseModel;
-import com.example.goodnews.rests.APIInterface;
+import com.example.goodnews.rests.ApiInterface;
 import com.example.goodnews.rests.ApiClient;
 import com.example.goodnews.utils.OnRecyclerViewItemClickListener;
 
@@ -38,7 +38,7 @@ public class NewsFeed extends AppCompatActivity implements OnRecyclerViewItemCli
         final RecyclerView mainRecycler = findViewById(R.id.recycle_view_news);
         final LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
         mainRecycler.setLayoutManager(linearLayoutManager);
-        final APIInterface apiService = ApiClient.getClient().create(APIInterface.class);
+        final ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
         Call<ResponseModel> call = apiService.getLatestNews("techcrunch", API_KEY);
         call.enqueue(new Callback<ResponseModel>() {
             @Override
