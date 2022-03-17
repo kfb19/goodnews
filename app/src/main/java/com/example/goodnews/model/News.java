@@ -4,7 +4,10 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
-
+/**
+ * The News model class.
+ * @author Kate Belson
+ */
 public class News {
     @SerializedName("status")
     @Expose
@@ -17,7 +20,7 @@ public class News {
     @SerializedName("articles")
     @Expose
     private List<ArticleModel> article;
-
+    //getters and setters for each variable
     public String getStatus() {
         return status;
     }

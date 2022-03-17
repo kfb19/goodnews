@@ -10,7 +10,10 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 import java.util.Random;
-
+/**
+ * The Utils class.
+ * @author Kate Belson
+ */
 public class Utils {
 
     public static ColorDrawable[] vibrantLightColorList =
@@ -25,11 +28,21 @@ public class Utils {
                     new ColorDrawable(Color.parseColor("#d93947"))
             };
 
+    /**
+     * Sets the drawable colours.
+     * @author Kate Belson
+     * @return the colour list.
+     */
     public static ColorDrawable getRandomDrawableColor() {
         int idx = new Random().nextInt(vibrantLightColorList.length);
         return vibrantLightColorList[idx];
     }
 
+    /**
+     * Returns the time.
+     * @author Kate Belson
+     * @return time.
+     */
     public static String DateToTimeFormat(String oldstringDate){
         PrettyTime p = new PrettyTime(new Locale(getCountry()));
         String isTime = null;
@@ -45,6 +58,11 @@ public class Utils {
         return isTime;
     }
 
+    /**
+     * Returns the date.
+     * @author Kate Belson
+     * @return date.
+     */
     public static String DateFormat(String oldstringDate){
         String newDate;
         SimpleDateFormat dateFormat = new SimpleDateFormat("E, d MMM yyyy", new Locale(getCountry()));
@@ -59,6 +77,11 @@ public class Utils {
         return newDate;
     }
 
+    /**
+     * Returns the country.  
+     * @author Kate Belson
+     * @return country.
+     */
     public static String getCountry(){
         Locale locale = Locale.getDefault();
         String country = String.valueOf(locale.getCountry());

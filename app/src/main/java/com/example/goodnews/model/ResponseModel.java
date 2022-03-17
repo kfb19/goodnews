@@ -2,6 +2,10 @@ package com.example.goodnews.model;
 
 import com.google.gson.annotations.SerializedName;
 import java.util.List;
+/**
+ * The Response model class.
+ * @author Kate Belson
+ */
 public class ResponseModel {
     @SerializedName("status")
     private String status;
@@ -9,6 +13,7 @@ public class ResponseModel {
     private int totalResults;
     @SerializedName("articles")
     private List<ArticleModel> articles = null;
+    //getters and setters for each variable
     public String getStatus() {
         return status;
     }
