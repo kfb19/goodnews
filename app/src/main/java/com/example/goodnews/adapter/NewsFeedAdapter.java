@@ -2,7 +2,9 @@ package com.example.goodnews.adapter;
 
 import android.content.Context;
 import android.media.Image;
+import android.net.Uri;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +14,7 @@ import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.example.goodnews.model.ArticleModel;
 import com.example.goodnews.utils.OnRecyclerViewItemClickListener;
 import com.example.goodnews.R;
@@ -68,9 +71,9 @@ public class NewsFeedAdapter extends RecyclerView.Adapter<NewsFeedAdapter.ViewHo
         if(!TextUtils.isEmpty(articleModel.getPublishedAt())) {
             viewHolder.date.setText(articleModel.getPublishedAt());
         }
-        if(!TextUtils.isEmpty((CharSequence) String.valueOf(articleModel.getUrlToImage()))) {
-            viewHolder.img.setImageURI(articleModel.getUrlToImage());
-        }
+        //if(!TextUtils.isEmpty((CharSequence) String.valueOf(articleModel.getUrlToImage()))) {
+            //viewHolder.img.setImageURI(articleModel.getUrlToImage());
+        //}
         viewHolder.articleAdapterParentLinear.setTag(articleModel);
     }
     @Override
@@ -92,7 +95,7 @@ public class NewsFeedAdapter extends RecyclerView.Adapter<NewsFeedAdapter.ViewHo
         private TextView descriptionText;
         private TextView author;
         private TextView date;
-        private ImageView img;
+        //private ImageView img;
         private LinearLayout articleAdapterParentLinear;
         /**
          * Constructor for the ViewHolder class.
@@ -105,7 +108,7 @@ public class NewsFeedAdapter extends RecyclerView.Adapter<NewsFeedAdapter.ViewHo
             descriptionText = view.findViewById(R.id.desc);
             author = view.findViewById(R.id.author);
             date = view.findViewById(R.id.publishedAt);
-            img = view.findViewById(R.id.img);
+            //img = view.findViewById(R.id.img);
             articleAdapterParentLinear = view.findViewById(R.id.lay);
             articleAdapterParentLinear.setOnClickListener(new View.OnClickListener() {
                 /**
