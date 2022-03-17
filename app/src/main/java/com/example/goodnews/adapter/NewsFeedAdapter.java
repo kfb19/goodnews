@@ -87,7 +87,7 @@ public class NewsFeedAdapter extends RecyclerView.Adapter<NewsFeedAdapter.ViewHo
     }
 
     /**
-     * The ViewHolder class is the class for the view holder. 
+     * The ViewHolder class is the class for the view holder.
      * @author Kate Belson
      */
     class ViewHolder extends RecyclerView.ViewHolder{
