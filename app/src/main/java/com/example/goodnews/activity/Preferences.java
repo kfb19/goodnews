@@ -19,6 +19,11 @@ import java.util.Set;
 
 import static android.content.ContentValues.TAG;
 
+/**
+ * The Preferences Activity allows users to choose between a dark and a light theme. 
+ * @author Kate Belson
+ */
+
 public class Preferences extends Activity implements View.OnClickListener {
 
     Button btnLightTheme;
@@ -36,6 +41,11 @@ public class Preferences extends Activity implements View.OnClickListener {
     // obtain an editor to add data to my SharedPreferences object
     SharedPreferences.Editor myEditor;
 
+    /**
+     * Creates the activity and sets the content view.
+     * @author Kate Belson
+     * @param savedInstanceState is instance state.
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -65,6 +75,11 @@ public class Preferences extends Activity implements View.OnClickListener {
 
     }
 
+    /**
+     * Describes what happens when you click on one of the theme buttons.
+     * @author Kate Belson and Dr Jia Hu
+     * @param v is the view
+     */
     @Override
     public void onClick(View v) {
         // clear all previous selections
@@ -80,6 +95,10 @@ public class Preferences extends Activity implements View.OnClickListener {
         applySavedPreferences();
     }
 
+    /**
+     * Restarts the activity with the shared preferences.
+     * @author Dr Jia Hu
+     */
     @Override
     protected void onPause() {
         // warning: activity is on its last state of visibility!
@@ -90,6 +109,10 @@ public class Preferences extends Activity implements View.OnClickListener {
         super.onPause();
     }
 
+    /**
+     * Applies the SharedPreferences.
+     * @author Kate Belson and Dr Jia Hu
+     */
     public void applySavedPreferences() {
         // extract the <key-value> pairs, use default param for missing data
         int backColor = mySharedPreferences.getInt("backColor",Color.GRAY);

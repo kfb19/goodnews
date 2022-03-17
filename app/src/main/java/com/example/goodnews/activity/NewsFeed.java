@@ -28,9 +28,19 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
+/**
+ * The NewsFeed Activity displays the homepage news feed via a RecyclerView and a News API.
+ * @author Kate Belson
+ */
+
 public class NewsFeed extends AppCompatActivity implements OnRecyclerViewItemClickListener {
     private static final String API_KEY = "bad365f0b7fd4702b3f46487838c9f2a";
 
+    /**
+     * Creates the activity and sets the content view, including the RecyclerView of news articles.
+     * @author Kate Belson
+     * @param savedInstanceState is instance state.
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -60,12 +70,22 @@ public class NewsFeed extends AppCompatActivity implements OnRecyclerViewItemCli
         });
     }
 
+    /**
+     * Creates the app's menu view.
+     * @author Kate Belson
+     * @param menu is app's menu.
+     */
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.menu, menu);
         return true;
     }
 
+    /**
+     * Decides what to do when a menu item is selected.
+     * @author Kate Belson
+     * @param item is the menu item selected.
+     */
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.home:
@@ -101,6 +121,12 @@ public class NewsFeed extends AppCompatActivity implements OnRecyclerViewItemCli
         return false;
     }
 
+    /**
+     * Describes what happens when an article is clicked on.
+     * @author Kate Belson
+     * @param position is the article's position in the RecyclerView.
+     * @param view is the view.
+     */
     @Override
     public void onItemClick(int position, View view) {
         switch (view.getId()) {
