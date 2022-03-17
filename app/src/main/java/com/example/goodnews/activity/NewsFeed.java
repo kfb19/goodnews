@@ -50,7 +50,7 @@ public class NewsFeed extends AppCompatActivity implements OnRecyclerViewItemCli
         final LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
         mainRecycler.setLayoutManager(linearLayoutManager);
         final ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
-        Call<ResponseModel> call = apiService.getLatestNews("techcrunch", API_KEY);
+        Call<ResponseModel> call = apiService.getLatestNews("gb", API_KEY);
         call.enqueue(new Callback<ResponseModel>() {
             @Override
             public void onResponse(Call<ResponseModel> call, Response<ResponseModel> response) {
