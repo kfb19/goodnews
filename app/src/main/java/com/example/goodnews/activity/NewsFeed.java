@@ -57,7 +57,7 @@ public class NewsFeed extends AppCompatActivity implements OnRecyclerViewItemCli
                     List<ArticleModel> articleList = response.body().getArticles();
                     if (articleList.size() > 0) {
                         final NewsFeedAdapter mainArticleAdapter = new NewsFeedAdapter(articleList);
-                        NewsFeedAdapter.setOnRecyclerViewItemClickListener(NewsFeed.this);
+                        mainArticleAdapter.setOnRecyclerViewItemClickListener(NewsFeed.this);
                         mainRecycler.setAdapter(mainArticleAdapter);
                     }
                 }

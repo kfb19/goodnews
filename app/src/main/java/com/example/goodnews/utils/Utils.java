@@ -78,7 +78,7 @@ public class Utils {
     }
 
     /**
-     * Returns the country.  
+     * Returns the country.
      * @author Kate Belson
      * @return country.
      */
