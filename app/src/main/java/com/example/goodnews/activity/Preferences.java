@@ -20,7 +20,7 @@ import java.util.Set;
 import static android.content.ContentValues.TAG;
 
 /**
- * The Preferences Activity allows users to choose between a dark and a light theme. 
+ * The Preferences Activity allows users to choose between a dark and a light theme.
  * @author Kate Belson
  */
 
