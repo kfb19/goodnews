@@ -37,28 +37,31 @@ public class WebActivity extends AppCompatActivity {
     }
 
     /**
-     * This method is called when the Open Website button is clicked. It will open the website
+     * This method is called when the Share Link button is clicked. It will share a link to the website
      * specified by the URL of the news article using implicit intents.
      * @author Kate Belson and Dr Jia Hu
-     * @param v Button that was clicked.
+     * @param v The view.
      */
-    public void onClickOpenWebpageButton(View v) {
+    public void onClickShareTextButton(View v) {
         String url = getIntent().getStringExtra("url");
-        openWebPage(url);
+        String textThatYouWantToShare = url;
+        shareText(textThatYouWantToShare);
     }
 
     /**
-     * This method fires off an implicit Intent to open a webpage.
+     * This method fires off an implicit Intent to provide the link for the webpage.
      * @author Kate Belson and Dr Jia Hu
-     * @param url Url of webpage to open. Should start with http:// or https:// as that is the
-     *            scheme of the URI expected with this Intent according to the Common Intents page.
+     * @param textToShare Url of the article.
      */
-    private void openWebPage(String url) {
-        Uri webpage = Uri.parse(url);
-        Intent intent = new Intent(Intent.ACTION_VIEW, webpage);
-        if (intent.resolveActivity(getPackageManager()) != null) {
-            startActivity(intent);
-        }
+    private void shareText(String textToShare) {
+        String mimeType = "text/plain";
+        String title = "Article Link";
+        ShareCompat.IntentBuilder
+                .from(this)
+                .setType(mimeType)
+                .setChooserTitle(title)
+                .setText(textToShare)
+                .startChooser();
     }
 
     /**
@@ -111,5 +114,7 @@ public class WebActivity extends AppCompatActivity {
         }
         return false;
     }
+
+
 
 }

@@ -22,7 +22,7 @@ public class ArticleModel {
     private String urlToImage;
     @SerializedName("publishedAt")
     private String publishedAt;
-    //getters and setters for each variable
+    //getters and setters for each method
     public SourceModel getSource() {
         return source;
     }
