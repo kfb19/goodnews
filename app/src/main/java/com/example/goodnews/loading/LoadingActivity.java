@@ -12,6 +12,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.example.goodnews.R;
+import com.example.goodnews.activity.Help;
 import com.example.goodnews.activity.NewsFeed;
 
 /**
@@ -49,7 +50,7 @@ public class LoadingActivity extends AppCompatActivity implements View.OnClickLi
             case R.id.start:
                 Context context = LoadingActivity.this;
                 // Store SecondActivity.class in a Class object called destinationActivity
-                Class destinationActivity = NewsFeed.class;
+                Class destinationActivity = Help.class;
                 // Create an Intent to start SecondActivity
                 Intent intent = new Intent (context, destinationActivity);
                 // Start the SecondActivity

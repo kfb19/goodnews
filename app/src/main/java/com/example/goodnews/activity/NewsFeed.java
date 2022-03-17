@@ -84,7 +84,7 @@ public class NewsFeed extends AppCompatActivity implements OnRecyclerViewItemCli
 
     /**
      * Decides what to do when a menu item is selected.
-     * @author Kate Belson
+     * @author Kate Belson and Dr Jia Hu
      * @param item is the menu item selected.
      */
     public boolean onOptionsItemSelected(MenuItem item) {

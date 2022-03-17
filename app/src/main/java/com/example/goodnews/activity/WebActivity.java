@@ -1,8 +1,12 @@
 package com.example.goodnews.activity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.webkit.WebView;
 
@@ -56,4 +60,56 @@ public class WebActivity extends AppCompatActivity {
             startActivity(intent);
         }
     }
+
+    /**
+     * Creates the app's menu view.
+     * @author Kate Belson
+     * @param menu is app's menu.
+     */
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu, menu);
+        return true;
+    }
+
+    /**
+     * Decides what to do when a menu item is selected.
+     * @author Kate Belson
+     * @param item is the menu item selected.
+     */
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.home:
+                Context context = WebActivity.this;
+                // Store SecondActivity.class in a Class object called destinationActivity
+                Class destinationActivity = NewsFeed.class;
+                // Create an Intent to start SecondActivity
+                Intent intent = new Intent(context, destinationActivity);
+                // Start the SecondActivity
+                startActivity(intent);
+                break;
+            case R.id.preferences:
+                Context contextPreferences = WebActivity.this;
+                // Store SecondActivity.class in a Class object called destinationActivity
+                Class destinationActivityPreferences = Preferences.class;
+                // Create an Intent to start SecondActivity
+                Intent intentPreferences = new Intent(contextPreferences, destinationActivityPreferences);
+                // Start the SecondActivity
+                startActivity(intentPreferences);
+                break;
+            case R.id.help:
+                Context contextHelp = WebActivity.this;
+                // Store SecondActivity.class in a Class object called destinationActivity
+                Class destinationActivityHelp = Help.class;
+                // Create an Intent to start SecondActivity
+                Intent intentHelp = new Intent(contextHelp, destinationActivityHelp);
+                // Start the SecondActivity
+                startActivity(intentHelp);
+                break;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+        return false;
+    }
+
 }

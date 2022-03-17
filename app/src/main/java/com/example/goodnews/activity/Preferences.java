@@ -1,6 +1,8 @@
 package com.example.goodnews.activity;
 
 import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.Typeface;
@@ -8,6 +10,9 @@ import android.os.Bundle;
 import com.example.goodnews.R;
 import android.preference.PreferenceManager;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -133,5 +138,56 @@ public class Preferences extends Activity implements View.OnClickListener {
         }
         myLayout1Vertical.setBackgroundColor(layoutColor);
     }// applySavedPreferences
+
+    /**
+     * Creates the app's menu view.
+     * @author Kate Belson
+     * @param menu is app's menu.
+     */
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu, menu);
+        return true;
+    }
+
+    /**
+     * Decides what to do when a menu item is selected.
+     * @author Kate Belson
+     * @param item is the menu item selected.
+     */
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.home:
+                Context context = Preferences.this;
+                // Store SecondActivity.class in a Class object called destinationActivity
+                Class destinationActivity = NewsFeed.class;
+                // Create an Intent to start SecondActivity
+                Intent intent = new Intent(context, destinationActivity);
+                // Start the SecondActivity
+                startActivity(intent);
+                break;
+            case R.id.preferences:
+                Context contextPreferences = Preferences.this;
+                // Store SecondActivity.class in a Class object called destinationActivity
+                Class destinationActivityPreferences = Preferences.class;
+                // Create an Intent to start SecondActivity
+                Intent intentPreferences = new Intent(contextPreferences, destinationActivityPreferences);
+                // Start the SecondActivity
+                startActivity(intentPreferences);
+                break;
+            case R.id.help:
+                Context contextHelp = Preferences.this;
+                // Store SecondActivity.class in a Class object called destinationActivity
+                Class destinationActivityHelp = Help.class;
+                // Create an Intent to start SecondActivity
+                Intent intentHelp = new Intent(contextHelp, destinationActivityHelp);
+                // Start the SecondActivity
+                startActivity(intentHelp);
+                break;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+        return false;
+    }
 
 }
