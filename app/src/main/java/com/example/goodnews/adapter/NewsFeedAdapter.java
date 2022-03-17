@@ -68,12 +68,9 @@ public class NewsFeedAdapter extends RecyclerView.Adapter<NewsFeedAdapter.ViewHo
         if(!TextUtils.isEmpty(articleModel.getPublishedAt())) {
             viewHolder.date.setText(articleModel.getPublishedAt());
         }
-        if(!TextUtils.isEmpty((CharSequence) articleModel.getSource())) {
-            viewHolder.source.setText((CharSequence) articleModel.getSource());
-        }
-        if(!TextUtils.isEmpty((CharSequence) articleModel.getUrlToImage())) {
-            viewHolder.img.setImageURI(articleModel.getUrlToImage());
-        }
+        //if(!TextUtils.isEmpty((CharSequence) String.valueOf(articleModel.getUrlToImage()))) {
+            //viewHolder.img.setImageURI(articleModel.getUrlToImage());
+        //}
         viewHolder.articleAdapterParentLinear.setTag(articleModel);
     }
     @Override
@@ -94,9 +91,8 @@ public class NewsFeedAdapter extends RecyclerView.Adapter<NewsFeedAdapter.ViewHo
         private TextView titleText;
         private TextView descriptionText;
         private TextView author;
-        private TextView source;
         private TextView date;
-        private ImageView img;
+        //private ImageView img;
         private LinearLayout articleAdapterParentLinear;
         /**
          * Constructor for the ViewHolder class.
@@ -108,9 +104,8 @@ public class NewsFeedAdapter extends RecyclerView.Adapter<NewsFeedAdapter.ViewHo
             titleText = view.findViewById(R.id.title);
             descriptionText = view.findViewById(R.id.desc);
             author = view.findViewById(R.id.author);
-            source = view.findViewById(R.id.source);
             date = view.findViewById(R.id.publishedAt);
-            img = view.findViewById(R.id.img);
+            //img = view.findViewById(R.id.img);
             articleAdapterParentLinear = view.findViewById(R.id.lay);
             articleAdapterParentLinear.setOnClickListener(new View.OnClickListener() {
                 /**

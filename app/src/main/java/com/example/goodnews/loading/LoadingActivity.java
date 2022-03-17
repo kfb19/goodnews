@@ -50,7 +50,7 @@ public class LoadingActivity extends AppCompatActivity implements View.OnClickLi
             case R.id.start:
                 Context context = LoadingActivity.this;
                 // Store SecondActivity.class in a Class object called destinationActivity
-                Class destinationActivity = Help.class;
+                Class destinationActivity = NewsFeed.class;
                 // Create an Intent to start SecondActivity
                 Intent intent = new Intent (context, destinationActivity);
                 // Start the SecondActivity

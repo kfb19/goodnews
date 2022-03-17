@@ -45,7 +45,7 @@ public class NewsFeed extends AppCompatActivity implements OnRecyclerViewItemCli
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_news_feed);
         final RecyclerView mainRecycler = findViewById(R.id.recycle_view_news);
         final LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
         mainRecycler.setLayoutManager(linearLayoutManager);

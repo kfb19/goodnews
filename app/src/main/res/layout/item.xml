@@ -13,8 +13,9 @@
         android:layout_marginTop="7dp"
         android:layout_marginBottom="7dp" >
 
-            <RelativeLayout
+            <LinearLayout
                 android:id="@+id/lay"
+                android:orientation="vertical"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
@@ -112,24 +113,7 @@
                     android:layout_marginRight="16dp"
                     android:layout_marginTop="5dp" />
 
-                <TextView
-                    android:id="@+id/source"
-                    android:layout_width="wrap_content"
-                    android:layout_height="20dp"
-                    android:layout_below="@id/desc"
-                    android:layout_marginLeft="16dp"
-                    android:layout_marginBottom="10dp"
-                    android:layout_marginTop="10dp"
-                    android:fontFamily="sans-serif-light"
-                    android:textStyle="bold"
-                    android:textColor="#62b8af"
-                    android:maxLines="1"
-                    android:drawablePadding="10dp"
-                    android:singleLine="true"
-                    android:ellipsize="end"
-                    android:text="Source" />
 
-
-            </RelativeLayout>
+            </LinearLayout>
     </androidx.cardview.widget.CardView>
 </FrameLayout>
