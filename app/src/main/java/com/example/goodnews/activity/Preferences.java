@@ -34,16 +34,9 @@ public class Preferences extends Activity implements View.OnClickListener {
     Button btnLightTheme;
     Button btnDarkTheme;
     TextView txtCaption1;
-    //    Boolean fancyPrefChosen = false;
     View myLayout1Vertical;
-
-    //    final int mode = Activity.MODE_PRIVATE;
     final String MYPREFS = "MyPreferences_001";
-
-    // create a reference to the shared preferences object
     SharedPreferences mySharedPreferences;
-
-    // obtain an editor to add data to my SharedPreferences object
     SharedPreferences.Editor myEditor;
 
     /**
@@ -89,12 +82,10 @@ public class Preferences extends Activity implements View.OnClickListener {
     public void onClick(View v) {
         // clear all previous selections
         myEditor.clear();
-
-        // what button has been clicked?
-        if (v.getId() == btnLightTheme.getId()) {
-            myEditor.putInt("backColor", Color.WHITE); // black background
+        if (v.getId() == btnLightTheme.getId()) { //case bLightTheme
+            myEditor.putInt("backColor", Integer.parseInt("62b8af",16)); // Teal background
         } else { // case bDarkTheme
-            myEditor.putInt("backColor", Color.BLACK); // fancy blue
+            myEditor.putInt("backColor", Color.BLACK); // Black background
         }
         myEditor.commit();
         applySavedPreferences();
@@ -120,7 +111,7 @@ public class Preferences extends Activity implements View.OnClickListener {
      */
     public void applySavedPreferences() {
         // extract the <key-value> pairs, use default param for missing data
-        int backColor = mySharedPreferences.getInt("backColor",Color.GRAY);
+        int backColor = mySharedPreferences.getInt("backColor",Integer.parseInt("62b8af",16));
         int textSize = mySharedPreferences.getInt("textSize", 12);
         String textStyle = mySharedPreferences.getString("textStyle", "normal");
         int layoutColor = mySharedPreferences.getInt("layoutColor",Color.DKGRAY);
